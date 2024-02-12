@@ -13,10 +13,18 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638430746085334897
-    m_Hash: 472575809
+      ticks: 638433380720619707
+    m_Hash: 2606745954
 m_EmbeddedPackageManifests:
-  m_ManifestsStatus: {}
+  m_ManifestsStatus:
+    D:/GitHub/SocialScapeVR/SocialScapeVR/Packages/com.blockadelabs.sdk/package.json:
+      m_FilePath: D:/GitHub/SocialScapeVR/SocialScapeVR/Packages/com.blockadelabs.sdk/package.json
+      m_PathExists: 1
+      m_ContentTrackingEnabled: 1
+      m_ModificationDate:
+        serializedVersion: 2
+        ticks: 638423142360000000
+      m_Hash: 790366613
 m_LocalPackages:
   m_LocalFileStatus: []
 m_ProjectPath: D:/GitHub/SocialScapeVR/SocialScapeVR/Packages
@@ -931,6 +939,7 @@ m_ResolvedPackages:
     - 3.0.5
     - 3.0.6
     - 3.0.7
+    - 3.0.8
     - 3.2.0-pre.1
     - 3.2.0-pre.2
     - 3.2.0-pre.3
@@ -944,6 +953,7 @@ m_ResolvedPackages:
     compatible:
     - 3.0.6
     - 3.0.7
+    - 3.0.8
     - 3.2.0-pre.1
     - 3.2.0-pre.2
     - 3.2.0-pre.3
@@ -954,7 +964,7 @@ m_ResolvedPackages:
     - 3.2.0-pre.8
     - 4.0.0-pre.1
     - 4.0.0-pre.2
-    recommended: 3.0.7
+    recommended: 3.0.8
     deprecated: []
   dependencies:
   - name: com.unity.ugui
@@ -3168,6 +3178,129 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.0.0
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+- packageId: com.blockadelabs.sdk@file:D:\GitHub\SocialScapeVR\SocialScapeVR\Packages\com.blockadelabs.sdk
+  testable: 1
+  isDirectDependency: 1
+  version: 1.7.1
+  source: 3
+  resolvedPath: D:\GitHub\SocialScapeVR\SocialScapeVR\Packages\com.blockadelabs.sdk
+  assetPath: Packages/com.blockadelabs.sdk
+  name: com.blockadelabs.sdk
+  displayName: Blockade Labs SDK
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: Create stunning AI-generated skybox assets within Unity for use as
+    HDRIs in game dev and immersive projects.
+  status: 0
+  errors: []
+  versions:
+    all: []
+    compatible: []
+    recommended: 
+    deprecated: []
+  dependencies:
+  - name: com.unity.nuget.newtonsoft-json
+    version: 2.0.0
+  resolvedDependencies:
+  - name: com.unity.nuget.newtonsoft-json
+    version: 3.2.1
+  keywords:
+  - ai
+  - skybox
+  - generator
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+- packageId: com.unity.nuget.newtonsoft-json@3.2.1
+  testable: 0
+  isDirectDependency: 0
+  version: 3.2.1
+  source: 1
+  resolvedPath: D:\GitHub\SocialScapeVR\SocialScapeVR\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1
+  assetPath: Packages/com.unity.nuget.newtonsoft-json
+  name: com.unity.nuget.newtonsoft-json
+  displayName: Newtonsoft Json
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: library
+  description: 'Newtonsoft Json for use in Unity projects and Unity packages. Currently
+    synced to version 13.0.2.
+
+
+    This package is used for advanced json serialization
+    and deserialization. Most Unity users will be better suited using the existing
+    json tools built into Unity.
+
+    To avoid assembly clashes, please use this
+    package if you intend to use Newtonsoft Json.'
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 3.2.1
+    compatible:
+    - 3.2.1
+    recommended: 3.2.1
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.nuget.newtonsoft-json.git
+    revision: d8e49aef8979bef617144382052ec2f479645eaf
+    path: 
+  unityLifecycle:
+    version: 3.2.1
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
