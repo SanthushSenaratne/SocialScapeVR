@@ -3,7 +3,117 @@ guid: 806a7fdf0b7e9e64b908a9cc0f95843a
 SketchUpImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Binnenkant Lichtbak
+    second: {fileID: 2100000, guid: f44f90ef5d2c3984b9e186e019b94286, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color_I02
+    second: {fileID: 2100000, guid: f1f654df54ba6b4448e71587d4fbdc78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fencing_Chain_Link2
+    second: {fileID: 2100000, guid: 2ed387c64c0c8ab40b3dd5d1ae5d3907, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Licht Grote Ruimte
+    second: {fileID: 2100000, guid: 14cb29b9173397f47aabb7bdd01a827c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_Corrogated_Brown
+    second: {fileID: 2100000, guid: bba7670d9e52be240a9fc7ae0d04a4ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_Corrogated_Shiny
+    second: {fileID: 2100000, guid: 7c90d7302e3424c48a9799dd9bc9761b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color B07]'
+    second: {fileID: 2100000, guid: c3999312ca029ed4c9f036b146b9ba12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color G08]'
+    second: {fileID: 2100000, guid: d541b99f561e24b4b8688b6c00f5f20b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color I01]'
+    second: {fileID: 2100000, guid: 985e3c9ae96eaba44834d6c4d1984e97, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _
+    second: {fileID: 2100000, guid: bf9226b40de150d45af7b97471a9b130, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _DarkGray_
+    second: {fileID: 2100000, guid: a7de955ef97756c42aa526ba471e27e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _DimGray_
+    second: {fileID: 2100000, guid: 5117eb4467007a746a019ecf04a14f30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Ivory_
+    second: {fileID: 2100000, guid: 54de582258871684aa2e07482731f997, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Orange_
+    second: {fileID: 2100000, guid: f568b5e15d18a9c46acf70a3a31f7691, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Safety Glass_1
+    second: {fileID: 2100000, guid: 654b3efa80e075d40acfd48049dd901a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _White_
+    second: {fileID: 2100000, guid: da4bebccdc9a0bc478c8c5af116801e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _defaultMat
+    second: {fileID: 2100000, guid: aab54690b2d20f54b850b5297d3fbc58, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 1112
+    second: {fileID: 2800000, guid: 86d746a6dfea0384aba97b6ca2fa88c4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Fencing_Chain_Link_tint0x164927FF
+    second: {fileID: 2800000, guid: 575ef90f4a1c5e84c868556dcc00f093, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Glass-Saftey_tint0x848484FF
+    second: {fileID: 2800000, guid: ca0444f4e2e95914dbcf855268bb6eb8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Corrogated_Shiny
+    second: {fileID: 2800000, guid: e3dcf714257ad5241bcf7d8b33f306d9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Corrogated_Shiny_tint0xC1946DFF
+    second: {fileID: 2800000, guid: 5c045ba022ff1a042ba644f1c1808aa6, type: 3}
   materials:
     materialImportMode: 2
     materialName: 2
