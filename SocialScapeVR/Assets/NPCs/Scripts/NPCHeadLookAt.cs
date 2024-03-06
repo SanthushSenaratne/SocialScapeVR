@@ -20,4 +20,8 @@ public class NPCHeadLookAt : MonoBehaviour
         isLookingAtPosition = true;
         headLookAtTransform.position = lookAtPosition;
     }
+
+    public void ResetLookAt() {
+        isLookingAtPosition = false;
+    }
 }
