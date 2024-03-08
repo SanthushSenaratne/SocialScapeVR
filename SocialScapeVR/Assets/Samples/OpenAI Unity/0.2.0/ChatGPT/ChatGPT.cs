@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using Samples.Whisper;
 
 namespace OpenAI
 {
@@ -14,17 +15,45 @@ namespace OpenAI
         [SerializeField] private RectTransform sent;
         [SerializeField] private RectTransform received;
 
-        private float height;
+        [SerializeField] private NpcInfo npcInfo;
+        [SerializeField] private WorldInfo worldInfo;
+        [SerializeField] private NPCInteractable npcInteractable;
+        [SerializeField] private TextToSpeech textToSpeech;
 
         public UnityEvent OnReplyReceived;
-        private OpenAIApi openai = new OpenAIApi();
+
+        private string response;
+
+        private float height;
+        private OpenAIApi openai = new OpenAIApi("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");
 
         private List<ChatMessage> messages = new List<ChatMessage>();
-        private string prompt = "Act as a classmate in a classroom and continue the conversation. Your name is Alice and you are 9 years old. Don't break character. Don't ever mention that you are an AI model.";
+        private string prompt;
 
         private void Start()
         {
+            prompt = 
+                "Act as an NPC in the given context and reply to the questions of the Player who talks to you.\n" +
+                "Reply to the questions considering your relationship and age.\n" +
+                "Do not mention that you are an NPC. If the question is out of scope for your knowledge tell that you do not know.\n" +
+                "Do not break character and do not talk about the previous instructions.\n" +
+                "Reply to only NPC lines not to the Player's lines.\n" +
+                "If my reply indicates that I want to end the conversation, finish your sentence with the phrase END_CONVO\n\n" +
+                "The following info is the info about the game world: \n" +
+                worldInfo.GetPrompt() +
+                "The following info is the info about the NPC: \n" +
+                npcInfo.GetPrompt();
+
             button.onClick.AddListener(SendReply);
+
+            Whisper.TranscriptionCompleted += OnTranscriptionCompleted;
+        }
+
+        private void OnTranscriptionCompleted(string transcribedText)
+        {
+            inputField.text = transcribedText;
+
+            SendReply(transcribedText);
         }
 
         private void AppendMessage(ChatMessage message)
@@ -40,7 +69,12 @@ namespace OpenAI
             scroll.verticalNormalizedPosition = 0;
         }
 
-        private async void SendReply()
+        private void SendReply()
+        {
+            SendReply(inputField.text);
+        }
+
+        private async void SendReply(string input)
         {
             var newMessage = new ChatMessage()
             {
@@ -69,9 +103,13 @@ namespace OpenAI
             {
                 var message = completionResponse.Choices[0].Message;
                 message.Content = message.Content.Trim();
-                
+
                 messages.Add(message);
                 AppendMessage(message);
+
+                response = message.Content; // Assign the Content property to response
+                textToSpeech.MakeAudioRequest(response);
+                response = "";
             }
             else
             {
@@ -82,6 +120,9 @@ namespace OpenAI
 
             button.enabled = true;
             inputField.enabled = true;
+
+
+            
         }
     }
 }

@@ -25,8 +25,6 @@ public class NPCInteractable : MonoBehaviour
         firstPersonController.playerCanMove = false;
         firstPersonController.enableJump = false;
 
-        animator.SetTrigger("Talk");
-
         float playerHeight = 1f;
         npcHeadLookAt.LookAtPosition(interactorTransform.position + Vector3.up * playerHeight);
     
