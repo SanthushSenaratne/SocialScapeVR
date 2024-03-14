@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638459946730930549
-    m_Hash: 2005894846
+      ticks: 638455033180552732
+    m_Hash: 4168551535
   m_LockFileStatus:
     m_FilePath: C:/Users/IMETH/Desktop/SocialScapeVR/SocialScapeVR/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638459946731041275
-    m_Hash: 850825061
+      ticks: 638455033180552732
+    m_Hash: 346708058
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -22,82 +22,6 @@ m_LocalPackages:
 m_ProjectPath: C:/Users/IMETH/Desktop/SocialScapeVR/SocialScapeVR/Packages
 m_EditorVersion: 2022.3.12f1 (4fe6e059c7ef)
 m_ResolvedPackages:
-- packageId: com.google.xr.cardboard@https://github.com/googlevr/cardboard-xr-plugin.git
-  testable: 0
-  isDirectDependency: 1
-  version: 1.23.0
-  source: 5
-  resolvedPath: C:\Users\IMETH\Desktop\SocialScapeVR\SocialScapeVR\Library\PackageCache\com.google.xr.cardboard@0d822d2031
-  assetPath: Packages/com.google.xr.cardboard
-  name: com.google.xr.cardboard
-  displayName: Google Cardboard XR Plugin for Unity
-  author:
-    name: 
-    email: 
-    url: 
-  category: 
-  type: 
-  description: Provides rendering and input support for Google Cardboard.
-  status: 0
-  errors: []
-  versions:
-    all: []
-    compatible: []
-    recommended: 
-    deprecated: []
-  dependencies:
-  - name: com.unity.xr.management
-    version: 3.2.9
-  - name: com.unity.xr.legacyinputhelpers
-    version: 2.1.4
-  resolvedDependencies:
-  - name: com.unity.xr.management
-    version: 4.4.1
-  - name: com.unity.modules.subsystems
-    version: 1.0.0
-  - name: com.unity.modules.jsonserialize
-    version: 1.0.0
-  - name: com.unity.modules.vr
-    version: 1.0.0
-  - name: com.unity.modules.physics
-    version: 1.0.0
-  - name: com.unity.modules.xr
-    version: 1.0.0
-  - name: com.unity.xr.legacyinputhelpers
-    version: 2.1.10
-  keywords:
-  - google
-  - cardboard
-  - vr
-  - xr
-  - reality
-  - xreditorsubsystem
-  registry:
-    id: main
-    name: 
-    url: https://packages.unity.com
-    scopes: []
-    isDefault: 1
-    capabilities: 7
-    configSource: 0
-  hideInEditor: 1
-  isAssetStorePackage: 0
-  datePublishedTicks: 0
-  documentationUrl: 
-  hasRepository: 0
-  repository:
-    type: 
-    url: 
-    revision: 
-    path: 
-  unityLifecycle:
-    version: 
-    nextVersion: 
-    recommendedVersion: 
-    isDeprecated: 0
-    deprecationMessage: 
-  isDeprecated: 0
-  deprecationMessage: 
 - packageId: com.inworld.unity@https://github.com/inworld-ai/inworld-unity.git#yj3.2
   testable: 0
   isDirectDependency: 1
@@ -613,14 +537,12 @@ m_ResolvedPackages:
     - 1.8.10
     - 1.8.11
     - 1.8.12
-    - 1.8.13
     compatible:
     - 1.8.9
     - 1.8.10
     - 1.8.11
     - 1.8.12
-    - 1.8.13
-    recommended: 1.8.13
+    recommended: 1.8.12
     deprecated: []
   dependencies:
   - name: com.unity.mathematics

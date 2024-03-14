@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.google.xr.cardboard": "https://github.com/googlevr/cardboard-xr-plugin.git",
     "com.inworld.unity": "https://github.com/inworld-ai/inworld-unity.git#yj3.2",
     "com.srcnalt.openai-unity": "https://github.com/srcnalt/OpenAI-Unity.git",
     "com.unity.2d.sprite": "1.0.0",
