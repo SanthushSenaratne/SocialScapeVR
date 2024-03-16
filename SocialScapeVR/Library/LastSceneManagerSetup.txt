@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/City Map.unity
+- path: Assets/Scenes/Supermaket.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
