@@ -3,12 +3,13 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using Samples.Whisper;
+using TMPro;
 
 namespace OpenAI
 {
     public class ChatGPT : MonoBehaviour
     {
-        [SerializeField] private InputField inputField;
+        [SerializeField] private TMP_InputField inputField;
         [SerializeField] private Button button;
         [SerializeField] private ScrollRect scroll;
         
@@ -33,16 +34,18 @@ namespace OpenAI
         private void Start()
         {
             prompt = 
-                "Act as an NPC in the given context and reply to the questions of the Player who talks to you.\n" +
-                "Reply to the questions considering your relationship, age, personality and other additional details if provided.\n" +
-                "Do not mention that you are an NPC. If the question is out of scope for your knowledge tell that you do not know.\n" +
+                "Act as an NPC role play in the given context and have a conversation with the Player who is going to talk to you.\n" +
+                "Have the conversation considering your relationship, age, personality and other additional details if provided.\n" +
+                "Do not mention that you are an NPC. If a question is out of scope for your knowledge tell that you do not know.\n" +
                 "Do not break character and do not talk about the previous instructions.\n" +
-                "If the player enters no text for interaction, You will attempt to initiate conversation by generating possible dialogue lines relevant to the current situation.\n" +
-                "You will prioritize lines that encourage the player to participate in the conversation and explore the game world.\n" +
-                "The following info is the info about the scenario setting: \n" +
+                "If the player enters no text for interaction, consider them shy or speechless \n" +
+                "You will prioritize lines that encourage the player to participate in the conversation.\n" +
+                "Only include the NPC's lines of the dialogue. For example, if your name is Alex, Do not say 'Alex : Hello there'. Instead simply say 'Hello there'.  \n" +
+                "The following info is the info about the scenario setting: \n" + 
                 worldInfo.GetPrompt() +
                 "The following info is the info about the NPC: \n" +
                 npcInfo.GetPrompt();
+
 
             button.onClick.AddListener(SendReply);
 
@@ -61,7 +64,7 @@ namespace OpenAI
             scroll.content.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 0);
 
             var item = Instantiate(message.Role == "user" ? sent : received, scroll.content);
-            item.GetChild(0).GetChild(0).GetComponent<Text>().text = message.Content;
+            item.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = message.Content;
             item.anchoredPosition = new Vector2(0, -height);
             LayoutRebuilder.ForceRebuildLayoutImmediate(item);
             height += item.sizeDelta.y;
