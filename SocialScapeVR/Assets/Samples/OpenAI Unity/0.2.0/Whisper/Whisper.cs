@@ -12,7 +12,7 @@ namespace Samples.Whisper
         [SerializeField] private Dropdown dropdown;
         
         private readonly string fileName = "output.wav";
-        private readonly int duration = 5;
+        private readonly int duration = 10;
         
         private AudioClip clip;
         private bool isRecording;
@@ -32,7 +32,7 @@ namespace Samples.Whisper
             {
                 dropdown.options.Add(new Dropdown.OptionData(device));
             }
-            recordButton.onClick.AddListener(StartRecording);
+            recordButton.onClick.AddListener(ToggleRecording);
             dropdown.onValueChanged.AddListener(ChangeMicrophone);
             
             var index = PlayerPrefs.GetInt("user-mic-device-index");
@@ -45,46 +45,46 @@ namespace Samples.Whisper
             PlayerPrefs.SetInt("user-mic-device-index", index);
         }
         
-        private void StartRecording()
+        private async void ToggleRecording()
         {
-            isRecording = true;
-            recordButton.enabled = false;
-
-            var index = PlayerPrefs.GetInt("user-mic-device-index");
-            
-            #if !UNITY_WEBGL
-            clip = Microphone.Start(dropdown.options[index].text, false, duration, 44100);
-            #endif
-        }
-
-        private async void EndRecording()
-        {
-            message.text = "Transcripting...";
-            
-            #if !UNITY_WEBGL
-            Microphone.End(null);
-            #endif
-            
-            byte[] data = SaveWav.Save(fileName, clip);
-            
-            var req = new CreateAudioTranscriptionsRequest
+            if (isRecording)
             {
-                FileData = new FileData() {Data = data, Name = "audio.wav"},
-                // File = Application.persistentDataPath + "/" + fileName,
-                Model = "whisper-1",
-                Language = "en"
-            };
-            var res = await openai.CreateAudioTranscription(req);
+                isRecording = false;
 
-            progressBar.fillAmount = 0;
-            message.text = res.Text;
+                #if !UNITY_WEBGL
+                Microphone.End(null);
+                #endif
 
-            if (TranscriptionCompleted != null)
-            {
-                TranscriptionCompleted(res.Text);
+                byte[] data = SaveWav.Save(fileName, clip);
+
+                var req = new CreateAudioTranscriptionsRequest
+                {
+                    FileData = new FileData() {Data = data, Name = "audio.wav"},
+                    Model = "whisper-1",
+                    Language = "en"
+                };
+                var res = await openai.CreateAudioTranscription(req);
+
+                progressBar.fillAmount = 0;
+                message.text = res.Text;
+
+                if (TranscriptionCompleted != null)
+                {
+                    TranscriptionCompleted(res.Text);
+                }
+
+                progressBar.fillAmount = 0;
             }
+            else
+            {
+                isRecording = true;
 
-            recordButton.enabled = true;
+                var index = PlayerPrefs.GetInt("user-mic-device-index");
+                
+                #if !UNITY_WEBGL
+                clip = Microphone.Start(dropdown.options[index].text, false, duration, 44100);
+                #endif
+            }
         }
 
         private void Update()
@@ -98,7 +98,7 @@ namespace Samples.Whisper
                 {
                     time = 0;
                     isRecording = false;
-                    EndRecording();
+                    ToggleRecording();
                 }
             }
         }

@@ -165,7 +165,7 @@ namespace OpenAI
             };
             messages.Add(message);
             
-            textToSpeech.MakeAudioRequest(response);
+            textToSpeech.MakeAudioRequest(response, textToSpeech.voiceId);
             
             isDone = true;
             response = "";

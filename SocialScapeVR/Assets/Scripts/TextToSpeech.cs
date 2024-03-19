@@ -7,28 +7,37 @@ using Amazon.Polly.Model;
 using System.Threading.Tasks;
 using UnityEngine.Events;
 using UnityEngine.Networking;
+public enum VoiceIdEnum
+    {
+        Ivy,
+        Justin,
+        Kevin,
+        Ruth
+    }
 
 public class TextToSpeech : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
 
     public class Credentials
-        {
-            public const string ACCESS_KEY = "AKIA6GBMF6JQSA5CSYVO";
-            public const string SECRET_KEY = "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";
-        }
+    {
+        public const string ACCESS_KEY = "AKIA6GBMF6JQSA5CSYVO";
+        public const string SECRET_KEY = "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";
+    }
+
+    [SerializeField] public VoiceIdEnum voiceId;
     
-    public async void MakeAudioRequest(string message)
+    public async void MakeAudioRequest(string message, VoiceIdEnum voiceId)
     {
 
         var credentials = new BasicAWSCredentials(Credentials.ACCESS_KEY, Credentials.SECRET_KEY);
-        var client = new AmazonPollyClient(credentials, RegionEndpoint.EUCentral1);
+        var client = new AmazonPollyClient(credentials, RegionEndpoint.USEast1);
 
         var request = new SynthesizeSpeechRequest()
         {
             Text = message,
             Engine = Engine.Neural,
-            VoiceId = VoiceId.Ivy,
+            VoiceId = (VoiceId)voiceId.ToString(),
             OutputFormat = OutputFormat.Mp3
         };
 
