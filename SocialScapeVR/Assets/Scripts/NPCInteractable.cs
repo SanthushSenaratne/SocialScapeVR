@@ -12,20 +12,17 @@ public class NPCInteractable : MonoBehaviour
 
     private Animator animator;
     private NPCHeadLookAt npcHeadLookAt;
-    private FirstPersonController firstPersonController;
+
     private void Awake () {
         animator = GetComponent<Animator>();
         npcHeadLookAt = GetComponent<NPCHeadLookAt>();
-        firstPersonController = FindObjectOfType<FirstPersonController>();
     }
     
     public void Interact(Transform interactorTransform) {
 
-        firstPersonController.cameraCanMove = false;
-        firstPersonController.playerCanMove = false;
-        firstPersonController.enableJump = false;
 
-        float playerHeight = 0.5f;
+
+        float playerHeight = 1.5f;
         npcHeadLookAt.LookAtPosition(interactorTransform.position + Vector3.up * playerHeight);
     
         toActivate.SetActive(true);
@@ -40,9 +37,7 @@ public class NPCInteractable : MonoBehaviour
     }
 
     public void StopInteract() {
-        firstPersonController.cameraCanMove = true;
-        firstPersonController.playerCanMove = true;
-        firstPersonController.enableJump = true;
+
 
         animator.SetTrigger("Idle");
 

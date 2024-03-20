@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638460012579230689
-    m_Hash: 4168551535
+      ticks: 638465597131436596
+    m_Hash: 528907301
   m_LockFileStatus:
     m_FilePath: D:/GitHub/SocialScapeVR/SocialScapeVR/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638460012579240644
-    m_Hash: 346708058
+      ticks: 638465597131491800
+    m_Hash: 3553532196
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -22,24 +22,22 @@ m_LocalPackages:
 m_ProjectPath: D:/GitHub/SocialScapeVR/SocialScapeVR/Packages
 m_EditorVersion: 2022.3.12f1 (4fe6e059c7ef)
 m_ResolvedPackages:
-- packageId: com.inworld.unity@https://github.com/inworld-ai/inworld-unity.git#yj3.2
+- packageId: com.google.xr.cardboard@https://github.com/googlevr/cardboard-xr-plugin.git
   testable: 0
   isDirectDependency: 1
-  version: 3.2.0
+  version: 1.24.0
   source: 5
-  resolvedPath: D:\GitHub\SocialScapeVR\SocialScapeVR\Library\PackageCache\com.inworld.unity@14296f2e05
-  assetPath: Packages/com.inworld.unity
-  name: com.inworld.unity
-  displayName: Inworld.AI
+  resolvedPath: D:\GitHub\SocialScapeVR\SocialScapeVR\Library\PackageCache\com.google.xr.cardboard@3e21f7f7a4
+  assetPath: Packages/com.google.xr.cardboard
+  name: com.google.xr.cardboard
+  displayName: Google Cardboard XR Plugin for Unity
   author:
     name: 
     email: 
     url: 
   category: 
-  type: library
-  description: Elevate NPCs beyond simple dialogue trees with AI characters that
-    can mimic human expression. Give NPCs unscripted dialogue, EQ, and contextual
-    awareness for a much more immersive gaming experience.
+  type: 
+  description: Provides rendering and input support for Google Cardboard.
   status: 0
   errors: []
   versions:
@@ -48,39 +46,42 @@ m_ResolvedPackages:
     recommended: 
     deprecated: []
   dependencies:
-  - name: com.unity.cloud.gltfast
-    version: 6.0.1
-  - name: com.unity.textmeshpro
-    version: 3.0.6
+  - name: com.unity.inputsystem
+    version: 1.7.0
+  - name: com.unity.xr.management
+    version: 3.2.9
+  - name: com.unity.xr.legacyinputhelpers
+    version: 2.1.4
   resolvedDependencies:
-  - name: com.unity.cloud.gltfast
-    version: 6.2.0
-  - name: com.unity.modules.jsonserialize
-    version: 1.0.0
-  - name: com.unity.modules.unitywebrequest
-    version: 1.0.0
-  - name: com.unity.mathematics
-    version: 1.3.1
-  - name: com.unity.burst
-    version: 1.8.11
-  - name: com.unity.textmeshpro
-    version: 3.0.6
-  - name: com.unity.ugui
+  - name: com.unity.inputsystem
+    version: 1.7.0
+  - name: com.unity.modules.uielements
     version: 1.0.0
   - name: com.unity.modules.ui
     version: 1.0.0
   - name: com.unity.modules.imgui
     version: 1.0.0
+  - name: com.unity.modules.jsonserialize
+    version: 1.0.0
+  - name: com.unity.xr.management
+    version: 4.4.1
+  - name: com.unity.modules.subsystems
+    version: 1.0.0
+  - name: com.unity.modules.vr
+    version: 1.0.0
+  - name: com.unity.modules.physics
+    version: 1.0.0
+  - name: com.unity.modules.xr
+    version: 1.0.0
+  - name: com.unity.xr.legacyinputhelpers
+    version: 2.1.10
   keywords:
-  - AI
-  - RPG
-  - dialogue
-  - chat
-  - chatGPT
-  - text-to-speech
-  - voice
-  - conversation
-  - chatbot
+  - google
+  - cardboard
+  - vr
+  - xr
+  - reality
+  - xreditorsubsystem
   registry:
     id: main
     name: 
@@ -221,6 +222,360 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.0.0
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+- packageId: com.unity.adaptiveperformance@5.0.2
+  testable: 0
+  isDirectDependency: 1
+  version: 5.0.2
+  source: 1
+  resolvedPath: D:\GitHub\SocialScapeVR\SocialScapeVR\Library\PackageCache\com.unity.adaptiveperformance@5.0.2
+  assetPath: Packages/com.unity.adaptiveperformance
+  name: com.unity.adaptiveperformance
+  displayName: Adaptive Performance
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: assets
+  description: 'The Adaptive Performance package provides an API to get feedback
+    about the thermal and power state of mobile devices, enabling applications to
+    make performance-relevant adaptions at runtime.
+
+
+    For instruction on how
+    to use samples, please read the documentation.
+
+
+    By installing this package,
+    you agree to the terms and conditions of the Unity End User License Agreement
+    found under "View licenses" above.'
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 0.2.0-preview.1
+    - 1.0.0
+    - 1.0.1
+    - 1.1.0-preview.2
+    - 1.1.0-preview.3
+    - 1.1.0-preview.4
+    - 1.1.0-preview.5
+    - 1.1.0-preview.7
+    - 1.1.0
+    - 1.1.6
+    - 1.1.9
+    - 1.1.10
+    - 1.2.0
+    - 1.2.2
+    - 1.2.3
+    - 2.0.0-preview.1
+    - 2.0.0-preview.2
+    - 2.0.0-preview.4
+    - 2.0.0-preview.7
+    - 2.0.0-preview.8
+    - 2.0.0-preview.9
+    - 2.0.0-preview.10
+    - 2.0.0-preview.11
+    - 2.0.0
+    - 2.0.1
+    - 2.0.2
+    - 2.1.0
+    - 2.1.1
+    - 2.2.1
+    - 2.2.3
+    - 2.2.4
+    - 3.0.0-pre.2
+    - 3.0.0
+    - 3.0.2
+    - 3.0.3
+    - 4.0.0-pre.1
+    - 4.0.0
+    - 4.0.1
+    - 5.0.0-pre.1
+    - 5.0.0-pre.2
+    - 5.0.0-pre.3
+    - 5.0.0-pre.4
+    - 5.0.0
+    - 5.0.1
+    - 5.0.2
+    compatible:
+    - 4.0.1
+    - 5.0.0-pre.1
+    - 5.0.0-pre.2
+    - 5.0.0-pre.3
+    - 5.0.0-pre.4
+    - 5.0.0
+    - 5.0.1
+    - 5.0.2
+    recommended: 4.0.1
+    deprecated: []
+  dependencies:
+  - name: com.unity.profiling.core
+    version: 1.0.2
+  resolvedDependencies:
+  - name: com.unity.profiling.core
+    version: 1.0.2
+  keywords:
+  - mobile
+  - adaptive
+  - performance
+  - utility
+  - utilities
+  - core
+  - samsung
+  - ap
+  - provider
+  - subsystem
+  - indexer
+  - scaler
+  - vrr
+  - boost
+  - profiles
+  - cluster
+  - clusterinfo
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 638290079540000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.adaptiveperformance@5.0/manual/index.html
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.adaptiveperformance.git
+    revision: d0a859ff72cb2feff9652eda68ebb265cc9f63a1
+    path: 
+  unityLifecycle:
+    version: 4.0.1
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+- packageId: com.unity.adaptiveperformance.google.android@1.2.1
+  testable: 0
+  isDirectDependency: 1
+  version: 1.2.1
+  source: 1
+  resolvedPath: D:\GitHub\SocialScapeVR\SocialScapeVR\Library\PackageCache\com.unity.adaptiveperformance.google.android@1.2.1
+  assetPath: Packages/com.unity.adaptiveperformance.google.android
+  name: com.unity.adaptiveperformance.google.android
+  displayName: Adaptive Performance Android
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: assets
+  description: "The Adaptive Performance Android package provides the Adaptive Performance
+    subsystem for Android platforms and works in combination with Adaptive Performance.
+    \n\nBy installing this package, you agree to the terms and conditions of the
+    Unity End User License Agreement found under \"View licenses\" above."
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 1.0.0-pre.2
+    - 1.0.0-pre.3
+    - 1.0.0-pre.4
+    - 1.0.0
+    - 1.1.0
+    - 1.1.1
+    - 1.1.2
+    - 1.2.0
+    - 1.2.1
+    compatible:
+    - 1.2.0
+    - 1.2.1
+    recommended: 
+    deprecated: []
+  dependencies:
+  - name: com.unity.adaptiveperformance
+    version: 5.0.0
+  resolvedDependencies:
+  - name: com.unity.adaptiveperformance
+    version: 5.0.2
+  - name: com.unity.profiling.core
+    version: 1.0.2
+  keywords:
+  - mobile
+  - adaptive
+  - performance
+  - utility
+  - utilities
+  - core
+  - google
+  - ap
+  - provider
+  - subsystem
+  - gamesdk
+  - VRR
+  - indexer
+  - scaler
+  - boost
+  - profiles
+  - cluster
+  - clusterinfo
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 638290079480000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.adaptiveperformance.google.android@1.2/manual/index.html
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.adaptiveperformance.google.android.git
+    revision: 697e7504710c2f0d20ab6eed14b80a20da9c02b5
+    path: 
+  unityLifecycle:
+    version: 
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+- packageId: com.unity.adaptiveperformance.samsung.android@5.0.0
+  testable: 0
+  isDirectDependency: 1
+  version: 5.0.0
+  source: 1
+  resolvedPath: D:\GitHub\SocialScapeVR\SocialScapeVR\Library\PackageCache\com.unity.adaptiveperformance.samsung.android@5.0.0
+  assetPath: Packages/com.unity.adaptiveperformance.samsung.android
+  name: com.unity.adaptiveperformance.samsung.android
+  displayName: Adaptive Performance Samsung Android
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: "The Adaptive Performance Samsung (Android) package provides the Adaptive
+    Performance subsystem for Samsung Android platforms and works in combination
+    with Adaptive Performance. \n\nBy installing this package, you agree to the terms
+    and conditions of the Samsung GameSDK End User License Agreement found under
+    \"View licenses\" above."
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 0.2.0-preview.1
+    - 1.0.0
+    - 1.0.1
+    - 1.0.2-preview.1
+    - 1.1.0-preview.2
+    - 1.1.0
+    - 1.1.1
+    - 1.1.2
+    - 1.1.3
+    - 1.1.4
+    - 1.1.6
+    - 1.1.9
+    - 1.1.10
+    - 1.2.1
+    - 1.2.2
+    - 1.2.3
+    - 2.0.0-preview.4
+    - 2.0.0-preview.7
+    - 2.0.0-preview.8
+    - 2.0.0-preview.9
+    - 2.0.0-preview.10
+    - 2.0.0-preview.11
+    - 2.0.0
+    - 2.0.1
+    - 2.0.2
+    - 2.1.0
+    - 2.1.1
+    - 2.2.1
+    - 2.2.2
+    - 2.2.4
+    - 2.2.5
+    - 3.0.0-pre.2
+    - 3.0.0
+    - 3.0.1
+    - 3.0.3
+    - 3.0.4
+    - 4.0.0-pre.1
+    - 4.0.0
+    - 4.0.1
+    - 4.0.2
+    - 5.0.0-pre.1
+    - 5.0.0-pre.2
+    - 5.0.0
+    compatible:
+    - 4.0.2
+    - 5.0.0-pre.1
+    - 5.0.0-pre.2
+    - 5.0.0
+    recommended: 4.0.2
+    deprecated: []
+  dependencies:
+  - name: com.unity.adaptiveperformance
+    version: 5.0.0
+  resolvedDependencies:
+  - name: com.unity.adaptiveperformance
+    version: 5.0.2
+  - name: com.unity.profiling.core
+    version: 1.0.2
+  keywords:
+  - mobile
+  - adaptive
+  - performance
+  - utility
+  - utilities
+  - core
+  - samsung
+  - ap
+  - provider
+  - subsystem
+  - gamesdk
+  - VRR
+  - indexer
+  - scaler
+  - boost
+  - profiles
+  - cluster
+  - clusterinfo
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 638158713650000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.adaptiveperformance.samsung.android@5.0/manual/index.html
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.adaptiveperformance.samsung.android.git
+    revision: 11a249c3a7df60f3bfff228fa7f1496991f40dfb
+    path: 
+  unityLifecycle:
+    version: 4.0.2
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
@@ -2531,6 +2886,166 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 4.4.0
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+- packageId: com.unity.xr.oculus@4.1.2
+  testable: 0
+  isDirectDependency: 1
+  version: 4.1.2
+  source: 1
+  resolvedPath: D:\GitHub\SocialScapeVR\SocialScapeVR\Library\PackageCache\com.unity.xr.oculus@4.1.2
+  assetPath: Packages/com.unity.xr.oculus
+  name: com.unity.xr.oculus
+  displayName: Oculus XR Plugin
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: assets
+  description: Provides display and input support for Oculus devices.
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 0.0.9-preview
+    - 0.1.2-preview.1
+    - 0.8.4-preview
+    - 1.0.0-preview.4
+    - 1.0.0
+    - 1.0.2
+    - 1.0.3-preview.1
+    - 1.1.0-preview
+    - 1.1.0
+    - 1.1.1
+    - 1.1.2-preview
+    - 1.1.2
+    - 1.1.3-preview
+    - 1.1.3-preview.1
+    - 1.1.4-preview
+    - 1.1.4-preview.1
+    - 1.1.4
+    - 1.1.5-preview
+    - 1.1.5
+    - 1.2.0-preview.1
+    - 1.2.0
+    - 1.3.1
+    - 1.3.3
+    - 1.3.4
+    - 1.4.0-preview.1
+    - 1.4.0-preview.2
+    - 1.4.0
+    - 1.4.3
+    - 1.5.0
+    - 1.5.1
+    - 1.6.0-preview.1
+    - 1.6.0-preview.2
+    - 1.6.1
+    - 1.7.0-preview.1
+    - 1.7.0-preview.2
+    - 1.7.0
+    - 1.8.1
+    - 1.9.0-preview.1
+    - 1.9.0
+    - 1.9.1
+    - 1.10.0-preview.1
+    - 1.10.0-preview.2
+    - 1.10.0
+    - 1.10.1-preview.3
+    - 1.11.0
+    - 1.11.2
+    - 1.12.0
+    - 1.12.1
+    - 1.13.0
+    - 1.13.1-preview.1
+    - 1.13.1-preview.2
+    - 1.13.1
+    - 2.0.0-preview.1
+    - 2.0.0-preview.2
+    - 2.0.0-preview.4
+    - 2.0.0-preview.5
+    - 2.0.2-preview.1
+    - 2.2.0-preview.1
+    - 2.2.3-preview.1
+    - 2.2.3-preview.2
+    - 3.0.0-pre.1
+    - 3.0.0-pre.2
+    - 3.0.0-pre.4
+    - 3.0.0
+    - 3.0.1
+    - 3.0.2
+    - 3.1.1
+    - 3.2.1
+    - 3.2.2-pre.1
+    - 3.2.2
+    - 3.2.3-pre.1
+    - 3.2.3
+    - 3.3.0
+    - 3.4.0
+    - 4.0.0
+    - 4.1.1
+    - 4.1.2
+    - 4.2.0-exp-env-depth.1
+    - 4.2.0-exp-env-depth.2
+    - 4.2.0
+    compatible:
+    - 4.1.1
+    - 4.1.2
+    - 4.2.0-exp-env-depth.1
+    - 4.2.0-exp-env-depth.2
+    - 4.2.0
+    recommended: 4.1.2
+    deprecated: []
+  dependencies:
+  - name: com.unity.xr.management
+    version: 4.4.0
+  resolvedDependencies:
+  - name: com.unity.xr.management
+    version: 4.4.1
+  - name: com.unity.modules.subsystems
+    version: 1.0.0
+  - name: com.unity.modules.jsonserialize
+    version: 1.0.0
+  - name: com.unity.modules.vr
+    version: 1.0.0
+  - name: com.unity.modules.physics
+    version: 1.0.0
+  - name: com.unity.modules.xr
+    version: 1.0.0
+  - name: com.unity.xr.legacyinputhelpers
+    version: 2.1.10
+  keywords:
+  - oculus
+  - xr
+  - vr
+  - virtual
+  - rift
+  - quest
+  - xreditorsubsystem
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 638351474750000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.xr.oculus@4.1/manual/index.html
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/xr.sdk.oculus.git
+    revision: 43cbde15c785269457550d6f414b4b2590c5ff3b
+    path: 
+  unityLifecycle:
+    version: 4.1.1
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
@@ -5276,6 +5791,69 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.2.6
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+- packageId: com.unity.profiling.core@1.0.2
+  testable: 0
+  isDirectDependency: 0
+  version: 1.0.2
+  source: 1
+  resolvedPath: D:\GitHub\SocialScapeVR\SocialScapeVR\Library\PackageCache\com.unity.profiling.core@1.0.2
+  assetPath: Packages/com.unity.profiling.core
+  name: com.unity.profiling.core
+  displayName: Unity Profiling Core API
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: The Unity Profiling Core package provides an API for code instrumentation
+    markup, and for profiling statistic collection.
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 0.1.0-preview.1
+    - 0.2.0-preview.1
+    - 0.2.1-preview.1
+    - 1.0.0-pre.1
+    - 1.0.0
+    - 1.0.2
+    compatible:
+    - 1.0.2
+    recommended: 1.0.2
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords:
+  - profiler
+  - profiling
+  - api
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637828752310000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/profiler.git
+    revision: 2189ba14439d76a4083f59fae87163b4bdfd49c2
+    path: 
+  unityLifecycle:
+    version: 1.0.2
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
