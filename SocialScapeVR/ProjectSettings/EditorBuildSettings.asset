@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 748673eb0adb8cf4a838258735caa10b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/City Map.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Classroom.unity
     guid: 100d4c1b4e7827f4588013ef9fbe33a8
   m_configObjects:
@@ -21,5 +21,6 @@ EditorBuildSettings:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 37e33a894ee020e49bc020650b30dd58, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: b52921ce09e854448bf663251366032f, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 7f441c40299761e4eba0cd6ead8d38a4, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: f89c21d2badc8f24799b66b3a6729edd, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 20e6e9f339421504abf53dd27f68b200, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 71f0aebc69b57084187174186c9fd080, type: 2}

@@ -68,6 +68,9 @@ public class VrModeController : MonoBehaviour
     /// </summary>
     public void Start()
     {
+        XRGeneralSettings.Instance.Manager.InitializeLoader();
+        XRGeneralSettings.Instance.Manager.StartSubsystems();
+        
         // Saves the main camera from the scene.
         _mainCamera = Camera.main;
 

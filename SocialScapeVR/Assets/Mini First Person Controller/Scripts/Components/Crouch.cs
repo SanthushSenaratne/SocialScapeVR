@@ -15,7 +15,7 @@ public class Crouch : MonoBehaviour
     public Transform headToLower;
     [HideInInspector]
     public float? defaultHeadYLocalPosition;
-    public float crouchYHeadPosition = 1;
+    public float crouchYHeadPosition = -0.3f;
     
     [Tooltip("Collider to lower when crouched.")]
     public CapsuleCollider colliderToLower;
@@ -68,12 +68,12 @@ public class Crouch : MonoBehaviour
                 }
                 else
                 {
-                    loweringAmount = defaultColliderHeight.Value * .5f;
+                    loweringAmount = defaultColliderHeight.Value * -0.35f;
                 }
 
                 // Lower the colliderToLower.
                 colliderToLower.height = Mathf.Max(defaultColliderHeight.Value - loweringAmount, 0);
-                colliderToLower.center = Vector3.up * colliderToLower.height * .5f;
+                colliderToLower.center = Vector3.up * colliderToLower.height * -0.35f;
             }
 
             // Set IsCrouched state.
@@ -98,7 +98,7 @@ public class Crouch : MonoBehaviour
                 if (colliderToLower)
                 {
                     colliderToLower.height = defaultColliderHeight.Value;
-                    colliderToLower.center = Vector3.up * colliderToLower.height * .5f;
+                    colliderToLower.center = Vector3.up * colliderToLower.height * -0.35f;
                 }
 
                 // Reset IsCrouched.

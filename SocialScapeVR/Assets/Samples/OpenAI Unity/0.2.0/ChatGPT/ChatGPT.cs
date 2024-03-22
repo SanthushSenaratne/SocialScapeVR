@@ -26,7 +26,7 @@ namespace OpenAI
         private string response;
 
         private float height;
-        private OpenAIApi openai = new OpenAIApi("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");
+        private OpenAIApi openai = new OpenAIApi("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");
 
         private List<ChatMessage> messages = new List<ChatMessage>();
         private string prompt;
