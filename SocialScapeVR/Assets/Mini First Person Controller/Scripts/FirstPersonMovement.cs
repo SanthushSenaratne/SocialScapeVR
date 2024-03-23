@@ -9,36 +9,50 @@ public class FirstPersonMovement : MonoBehaviour
     public bool canRun = true;
     public bool IsRunning { get; private set; }
     public float runSpeed = 9;
-    public KeyCode runningKey = KeyCode.LeftShift;
 
     Rigidbody rigidbody;
+    Camera mainCamera; // Reference to the main camera
+
     /// <summary> Functions to override movement speed. Will use the last added override. </summary>
     public List<System.Func<float>> speedOverrides = new List<System.Func<float>>();
 
 
-
     void Awake()
     {
-        // Get the rigidbody on this.
         rigidbody = GetComponent<Rigidbody>();
+        mainCamera = Camera.main; // Get the main camera
     }
 
     void FixedUpdate()
     {
-        // Update IsRunning from input.
-        IsRunning = canRun && Input.GetKey(runningKey);
+        IsRunning = canRun && (Input.GetAxis("Sprint") != 0);
 
-        // Get targetMovingSpeed.
         float targetMovingSpeed = IsRunning ? runSpeed : speed;
         if (speedOverrides.Count > 0)
         {
             targetMovingSpeed = speedOverrides[speedOverrides.Count - 1]();
         }
 
-        // Get targetVelocity from input.
-        Vector2 targetVelocity =new Vector2( Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
+        // Get movement direction based on camera forward and right vectors
+        Vector3 cameraForward = mainCamera.transform.forward;
+        Vector3 cameraRight = mainCamera.transform.right;
 
-        // Apply movement.
-        rigidbody.velocity = transform.rotation * new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.y);
+        // Remove the vertical component of camera forward for movement on the ground plane
+        cameraForward.y = 0f;
+
+        // Get movement based on input and camera direction (horizontal only)
+        float forwardAmount = Input.GetAxis("Vertical") * targetMovingSpeed; // No vertical movement from input
+        float rightAmount = Input.GetAxis("Horizontal") * targetMovingSpeed;
+
+        Vector3 targetHorizontalVelocity = cameraForward * forwardAmount + cameraRight * rightAmount;
+
+        // Preserve current vertical velocity (for jumping)
+        float currentVerticalVelocity = rigidbody.velocity.y;
+
+        // Combine horizontal and vertical velocities
+        Vector3 targetVelocity = new Vector3(targetHorizontalVelocity.x, currentVerticalVelocity, targetHorizontalVelocity.z);
+
+        // Apply movement
+        rigidbody.velocity = targetVelocity;
     }
 }
