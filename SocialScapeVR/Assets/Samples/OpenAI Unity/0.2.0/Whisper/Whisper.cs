@@ -16,7 +16,7 @@ namespace Samples.Whisper
 
         private readonly string fileName = "output.wav";
         private readonly int duration = 10;
-
+        private int totalSpeechDisfluency = 0;
         private AudioClip clip;
         private bool isRecording;
         private float time;
@@ -67,18 +67,25 @@ namespace Samples.Whisper
 
                 var req = new CreateAudioTranscriptionsRequest
                 {
-                FileData = new FileData() { Data = data, Name = "audio.wav" },
-                Model = "whisper-1",
-                Language = "en"
+                    FileData = new FileData() { Data = data, Name = "audio.wav" },
+                    Model = "whisper-1",
+                    Language = "en"
                 };
                 var res = await openai.CreateAudioTranscription(req);
+                
 
                 progressBar.fillAmount = 0;
                 message.text = res.Text; 
 
+                int SpeechDisfluency = SpeechAnalysis.AnalyzeSpeech(res.Text);
+                totalSpeechDisfluency += SpeechDisfluency;
+
+                Debug.Log("Current Speech disfluency Score: " + SpeechDisfluency);
+                Debug.Log("Total Speech disfluency Score: " + totalSpeechDisfluency);
+
                 if (TranscriptionCompleted != null)
                 {
-                TranscriptionCompleted(res.Text);
+                    TranscriptionCompleted(res.Text);
                 }
 
                 progressBar.fillAmount = 0;
@@ -118,6 +125,11 @@ namespace Samples.Whisper
             {
                 ToggleRecording();
             }
+        }
+
+        public void ResetSpeechDisfluency()
+        {
+            totalSpeechDisfluency = 0;
         }
     }
 }

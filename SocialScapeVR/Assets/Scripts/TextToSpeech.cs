@@ -81,4 +81,13 @@ public class TextToSpeech : MonoBehaviour
             }
         }
     }
+
+    public void RemoveAudioClip()
+    {
+        if (audioSource != null)
+        {
+            audioSource.clip = null; // Set the clip to null to remove it
+            audioSource.Stop();     // Stop playback if it's currently playing
+        }
+    }
 }

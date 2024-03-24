@@ -122,10 +122,22 @@ namespace OpenAI
             OnReplyReceived.Invoke();
 
             button.enabled = true;
-            inputField.enabled = true;
+            inputField.enabled = true; 
+        }
 
-
+        public void ClearMessages()
+        {
+            textToSpeech.RemoveAudioClip();
             
+            // Destroy child elements of the scroll content
+            foreach (Transform child in scroll.content.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        
+            // Reset message list and height
+            messages.Clear();
+            height = 0;
         }
     }
 }
