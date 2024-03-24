@@ -6,28 +6,31 @@ public class PlayerInteract : MonoBehaviour
 {
     private void Update() 
     {
-        if (Input.GetKeyDown(KeyCode.E)) {
-        float InteractRange = 2f;
-        Collider[] colliderArray = Physics.OverlapSphere(transform.position, InteractRange);
-            foreach (Collider collider in colliderArray) {
-                if (collider.TryGetComponent(out NPCInteractable npcInteractable)) {
-                    npcInteractable.Interact(transform);
-                }
-            }
+        if (Input.GetButtonDown("Interact")) 
+        {
+            GetInteractableObject().Interact(transform);
+        }
+        if (Input.GetButtonDown("Back")) 
+        {
+            GetInteractableObject().StopInteract();
         }
     }
 
-    public NPCInteractable GetInteractableObject() {
+    public NPCInteractable GetInteractableObject() 
+    {
         List<NPCInteractable> npcInteractableList = new List<NPCInteractable>();
         float InteractRange = 2f;
         Collider[] colliderArray = Physics.OverlapSphere(transform.position, InteractRange);
-        foreach (Collider collider in colliderArray) {
-            if (collider.TryGetComponent(out NPCInteractable npcInteractable)) {
+        foreach (Collider collider in colliderArray) 
+        {
+            if (collider.TryGetComponent(out NPCInteractable npcInteractable)) 
+            {
                 npcInteractableList.Add(npcInteractable);
             }
         }
         NPCInteractable closestInteractable = null;
-        foreach (NPCInteractable npcInteractable in npcInteractableList) {
+        foreach (NPCInteractable npcInteractable in npcInteractableList) 
+        {
            if (closestInteractable == null)
             {
                 closestInteractable = npcInteractable;

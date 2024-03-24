@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class NPCInteractable : MonoBehaviour
 {
-    [SerializeField] private String interactText;
     [SerializeField] private GameObject toActivate;
     [SerializeField] private GameObject toDeactivate;
 
@@ -20,8 +19,6 @@ public class NPCInteractable : MonoBehaviour
     
     public void Interact(Transform interactorTransform) {
 
-
-
         float playerHeight = 0f;
         npcHeadLookAt.LookAtPosition(interactorTransform.position + Vector3.up * playerHeight);
     
@@ -30,10 +27,6 @@ public class NPCInteractable : MonoBehaviour
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-    }
-
-    public String GetInteractText() {
-        return interactText;
     }
 
     public void StopInteract() {

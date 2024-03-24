@@ -11,6 +11,8 @@ namespace Samples.Whisper
         [SerializeField] private Image progressBar;
         [SerializeField] private TMP_Dropdown microphoneDropdown; 
         [SerializeField] private TMP_Text message; 
+        [SerializeField] private TMP_Text startText;
+        [SerializeField] private TMP_Text stopText;
 
         private readonly string fileName = "output.wav";
         private readonly int duration = 10;
@@ -39,6 +41,8 @@ namespace Samples.Whisper
             var index = PlayerPrefs.GetInt("user-mic-device-index");
             microphoneDropdown.SetValueWithoutNotify(index);
             #endif
+
+            stopText.enabled = false; 
         }
 
         private void ChangeMicrophone(int index)
@@ -50,6 +54,9 @@ namespace Samples.Whisper
         {
             if (isRecording)
             {
+                startText.enabled = true;
+                stopText.enabled = false;
+
                 isRecording = false;
 
                 #if !UNITY_WEBGL
@@ -78,12 +85,16 @@ namespace Samples.Whisper
             }
             else
             {
+                startText.enabled = false;
+                stopText.enabled = true;
+
                 isRecording = true;
 
                 var index = PlayerPrefs.GetInt("user-mic-device-index");
 
                 #if !UNITY_WEBGL
-                clip = Microphone.Start(microphoneDropdown.options[index].text, false, duration, 44100);
+                int lastMicIndex = Microphone.devices.Length - 1;
+                clip = Microphone.Start(microphoneDropdown.options[lastMicIndex].text, false, duration, 44100);
                 #endif
             }
         }
@@ -101,6 +112,11 @@ namespace Samples.Whisper
                 isRecording = false;
                 ToggleRecording();
                 }
+            }
+
+            if (Input.GetButtonDown("Interact"))
+            {
+                ToggleRecording();
             }
         }
     }
