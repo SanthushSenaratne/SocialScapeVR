@@ -50068,7 +50068,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1670144576}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114963312265844522}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: LoadPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1670144576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50189,7 +50201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1674971993}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114963312265844522}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: SavePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1674971993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65556,6 +65580,7 @@ GameObject:
   - component: {fileID: 114497867797369567}
   - component: {fileID: 114762042519260917}
   - component: {fileID: 114963312265844520}
+  - component: {fileID: 114963312265844522}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -65898,6 +65923,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: -0.7, z: 0}
+--- !u!114 &114963312265844522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773622926898875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168879dcf0c83b4429ffa946ce32cc41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  wordCount: 0
+  disfluencyCount: 0
 --- !u!124 &124991110281419015
 Behaviour:
   m_ObjectHideFlags: 0
