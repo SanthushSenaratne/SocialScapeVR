@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,8 @@ using UnityEngine;
 
 public class SpeechAnalysis : MonoBehaviour
 {
-  public static readonly string[] anxietyIndicators = {
+  public static readonly string[] disfluencyIndicators = 
+  {
     "um", "like", "i dont know", "you know what I mean",
     "i guess", "well", "uh", "right", "ummm",
     "uh-huh", "ahh", "you know",
@@ -14,16 +16,8 @@ public class SpeechAnalysis : MonoBehaviour
     "to be honest", "you see", "the thing is", "im not sure"
   };
 
-  public static int AnalyzeSpeech(string text)
-  {
-    text = PreprocessText(text);
-    Debug.Log("Preprocessed text: " + text);
-    int anxietyScore = CountKeywordOccurrences(text, anxietyIndicators);
-    return anxietyScore;
-  }
-
   // Function for text preprocessing 
-  private static string PreprocessText(string text)
+  public static string PreprocessText(string text)
   {
     // Convert to lowercase for case-insensitive matching
     text = text.ToLower();
@@ -34,16 +28,22 @@ public class SpeechAnalysis : MonoBehaviour
   }
 
   // Function to count keyword occurrences
-  private static int CountKeywordOccurrences(string text, string[] keywords)
-    {
-    int count = 0;
-    foreach (string keyphrase in keywords)
-    {
-        string pattern = @"\b" + keyphrase.Replace(" ", @"\s+") + @"\b"; 
-        count += Regex.Matches(text, pattern).Count;
-    }
-    return count;
-    }
+  public static int CountKeywordOccurrences(string text, string[] keywords)
+  {
+  int count = 0;
+  foreach (string keyphrase in keywords)
+  {
+      string pattern = @"\b" + keyphrase.Replace(" ", @"\s+") + @"\b"; 
+      count += Regex.Matches(text, pattern).Count;
+  }
+  return count;
+  }
+
+  public static int CountWords(string text)
+  {
+      return text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length;
+  }
+
 }
 
 

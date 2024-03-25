@@ -1,7 +1,8 @@
 ﻿using OpenAI;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI; 
+using UnityEngine.UI;
+using System;
 
 namespace Samples.Whisper
 {
@@ -16,7 +17,9 @@ namespace Samples.Whisper
 
         private readonly string fileName = "output.wav";
         private readonly int duration = 10;
-        private int totalSpeechDisfluency = 0;
+        private int wordCount = 0;
+        private int disfluencyCount = 0;
+        private int totalRate = 0;
         private AudioClip clip;
         private bool isRecording;
         private float time;
@@ -77,11 +80,51 @@ namespace Samples.Whisper
                 progressBar.fillAmount = 0;
                 message.text = res.Text; 
 
-                int SpeechDisfluency = SpeechAnalysis.AnalyzeSpeech(res.Text);
-                totalSpeechDisfluency += SpeechDisfluency;
+                String text = SpeechAnalysis.PreprocessText(res.Text);
+                Debug.Log("Preprocessed text: " + text);
 
-                Debug.Log("Current Speech disfluency Score: " + SpeechDisfluency);
-                Debug.Log("Total Speech disfluency Score: " + totalSpeechDisfluency);
+                int tempWordCount = SpeechAnalysis.CountWords(text);
+                Debug.Log("Number of words: " + tempWordCount);
+
+                int tempDisfluencyCount = SpeechAnalysis.CountKeywordOccurrences(text, SpeechAnalysis.disfluencyIndicators);
+                Debug.Log("Number of disfluencies: " + tempDisfluencyCount);
+                
+                if (tempWordCount == 0)
+                {
+                    wordCount = tempWordCount;
+                }
+                else
+                {
+                    wordCount += tempWordCount;
+                }
+                Debug.Log("Total number of words: " + wordCount);
+
+                if (tempDisfluencyCount == 0)
+                {
+                    disfluencyCount = tempDisfluencyCount;
+                }
+                else
+                {
+                    disfluencyCount += tempDisfluencyCount;
+                }
+                Debug.Log("Total number of disfluencies: " + disfluencyCount);
+
+                totalRate = disfluencyCount * 100 / wordCount;
+                Debug.Log("Total speech disfluency rate: " + totalRate);
+
+                Player player = FindObjectOfType<Player>();
+                if (player != null)
+                {
+                    player.wordCount += wordCount;
+                    player.disfluencyCount += disfluencyCount;
+
+                    player.CalculateLevel();
+                    player.SavePlayer();
+                }
+                else
+                {
+                    Debug.LogWarning("Player object not found to save disfluency rate.");
+                }
 
                 if (TranscriptionCompleted != null)
                 {
@@ -129,7 +172,7 @@ namespace Samples.Whisper
 
         public void ResetSpeechDisfluency()
         {
-            totalSpeechDisfluency = 0;
+            totalRate = 0;
         }
     }
 }

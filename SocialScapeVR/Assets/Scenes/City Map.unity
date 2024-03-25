@@ -16260,7 +16260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5223145366431733111, guid: deccf1312b7dec34fb1889a4eff7b455, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.725
       objectReference: {fileID: 0}
     - target: {fileID: 5223145366431733111, guid: deccf1312b7dec34fb1889a4eff7b455, type: 3}
       propertyPath: m_LocalPosition.z
@@ -31269,20 +31269,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015147744}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.97}
+  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1599887799}
   - {fileID: 1041414}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 4207293302598931}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 439.32068}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1015147746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31322,7 +31322,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1015147748
 Canvas:
   m_ObjectHideFlags: 0
@@ -31332,7 +31332,7 @@ Canvas:
   m_GameObject: {fileID: 1015147744}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -31340,7 +31340,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -57110,7 +57110,7 @@ MonoBehaviour:
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
-  m_CancelButton: Cancel
+  m_CancelButton: Back
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
@@ -60678,7 +60678,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062857277}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f478d43f27e324b7199d5dccff4298b7, type: 3}
   m_Name: 
@@ -65068,6 +65068,7 @@ Transform:
   - {fileID: 4464630900511321}
   - {fileID: 4773208373828831}
   - {fileID: 840027045}
+  - {fileID: 1015147745}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4464630900511321
@@ -68857,6 +68858,5 @@ SceneRoots:
   - {fileID: 4207293302598931}
   - {fileID: 151757577}
   - {fileID: 2062857281}
-  - {fileID: 1015147745}
   - {fileID: 1957990593}
   - {fileID: 2112744518}

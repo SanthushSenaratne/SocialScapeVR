@@ -19,10 +19,10 @@ public class PauseMenu : MonoBehaviour
         ButtonToSelectInPause.Select();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if(Input.GetButtonDown("Escape")) 
+        {
             if(isPaused)
             {
                 ResumeGame();

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int level;
+    public int wordCount;
+    public int disfluencyCount;
 
     public void SavePlayer()
     {
@@ -16,6 +18,8 @@ public class Player : MonoBehaviour
         PlayerData data = SaveSystem.LoadPlayer();
 
         level = data.level;
+        wordCount = data.wordCount;
+        disfluencyCount = data.disfluencyCount;
 
         Vector3 position;
         position.x = data.position[0];
@@ -24,5 +28,18 @@ public class Player : MonoBehaviour
 
         transform.position = position;
     }
-    
+
+    public void CalculateLevel()
+    {
+        if (wordCount < 100)
+        {
+            level = 0;
+        }
+        else
+        {
+            // Extract the level by removing the last 2 digits and converting to integer
+            string levelString = wordCount.ToString().Substring(0, wordCount.ToString().Length - 2);
+            level = int.Parse(levelString);
+        }
+    }
 }
