@@ -21,8 +21,8 @@ public class TextToSpeech : MonoBehaviour
 
     public class Credentials
     {
-        public const string ACCESS_KEY = "AKIA6GBMF6JQSEMGTRHJ";
-        public const string SECRET_KEY = "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";
+        public const string ACCESS_KEY = "";
+        public const string SECRET_KEY = "";
     }
 
     [SerializeField] public VoiceIdEnum voiceId;
