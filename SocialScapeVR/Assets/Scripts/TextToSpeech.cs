@@ -19,18 +19,12 @@ public class TextToSpeech : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
 
-    public class Credentials
-    {
-        public const string ACCESS_KEY = "";
-        public const string SECRET_KEY = "";
-    }
-
     [SerializeField] public VoiceIdEnum voiceId;
     
     public async void MakeAudioRequest(string message, VoiceIdEnum voiceId)
     {
 
-        var credentials = new BasicAWSCredentials(Credentials.ACCESS_KEY, Credentials.SECRET_KEY);
+        var credentials = new BasicAWSCredentials(APIKeys.AWS_ACCESS_KEY, APIKeys.AWS_SECRET_KEY);
         var client = new AmazonPollyClient(credentials, RegionEndpoint.USEast1);
 
         var request = new SynthesizeSpeechRequest()

@@ -16,7 +16,7 @@ public class ASyncLoader : MonoBehaviour
     public void LoadLevelBtn(string levelToLoad)
     {
         MainMenu.SetActive(false);
-       LoadingScreen.SetActive(true);
+        LoadingScreen.SetActive(true);
 
         StartCoroutine(LoadLevelASync(levelToLoad));
 
@@ -32,5 +32,13 @@ public class ASyncLoader : MonoBehaviour
             LoadingSlider.value = progressValue;
             yield return null;
         }
+    }
+
+    public void NewGame(string levelToLoad)
+    {
+        Player player = FindObjectOfType<Player>();
+        player.ResetPlayer();
+        player.SavePlayer();
+        LoadLevelBtn(levelToLoad);
     }
 }

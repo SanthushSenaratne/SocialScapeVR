@@ -23,7 +23,7 @@ namespace Samples.Whisper
         private AudioClip clip;
         private bool isRecording;
         private float time;
-        private OpenAIApi openai = new OpenAIApi("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");
+        private OpenAIApi openai = new OpenAIApi(APIKeys.OPENAI_API);
 
         public delegate void OnTranscriptionCompleted(string text);
         public static event OnTranscriptionCompleted TranscriptionCompleted;
@@ -78,16 +78,13 @@ namespace Samples.Whisper
                 
 
                 progressBar.fillAmount = 0;
-                message.text = res.Text; 
+                message.text = res.Text;
 
-                String text = SpeechAnalysis.PreprocessText(res.Text);
-                Debug.Log("Preprocessed text: " + text);
+                string text = SpeechAnalysis.PreprocessText(res.Text);
 
                 int tempWordCount = SpeechAnalysis.CountWords(text);
-                Debug.Log("Number of words: " + tempWordCount);
 
                 int tempDisfluencyCount = SpeechAnalysis.CountKeywordOccurrences(text, SpeechAnalysis.disfluencyIndicators);
-                Debug.Log("Number of disfluencies: " + tempDisfluencyCount);
                 
                 if (tempWordCount == 0)
                 {
@@ -97,7 +94,6 @@ namespace Samples.Whisper
                 {
                     wordCount += tempWordCount;
                 }
-                Debug.Log("Total number of words: " + wordCount);
 
                 if (tempDisfluencyCount == 0)
                 {
@@ -107,16 +103,13 @@ namespace Samples.Whisper
                 {
                     disfluencyCount += tempDisfluencyCount;
                 }
-                Debug.Log("Total number of disfluencies: " + disfluencyCount);
-
-                totalRate = disfluencyCount * 100 / wordCount;
-                Debug.Log("Total speech disfluency rate: " + totalRate);
 
                 Player player = FindObjectOfType<Player>();
                 if (player != null)
                 {
                     player.wordCount += wordCount;
                     player.disfluencyCount += disfluencyCount;
+                    player.fluencyRate = 100 - (player.disfluencyCount * 100 / player.wordCount);
 
                     player.CalculateLevel();
                     player.SavePlayer();

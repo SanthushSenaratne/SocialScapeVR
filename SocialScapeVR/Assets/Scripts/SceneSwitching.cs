@@ -10,7 +10,22 @@ public class SceneSwitching : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) {
+            Player player = FindObjectOfType<Player>();
+            player.SavePlayer();
+            Debug.Log("Game Saved");
+            
             SceneManager.LoadScene(scenename);
         }
+    }
+
+    private void Start()
+    {
+        Player player = FindObjectOfType<Player>();
+
+        player.LoadPlayerWithoutPos();
+        Debug.Log("Player data loaded after scene switch");
+
+        player.SavePlayer();
+
     }
 }
