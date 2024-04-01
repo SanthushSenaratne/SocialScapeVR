@@ -9,16 +9,34 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject Map;
+    public GameObject OptionsMenu;
     public Button ButtonToSelectInPause;
     public Button ButtonToSelectInMap;
+    public Button ButtonToSelectInOptions;
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI scoreText;
+    public TMP_Dropdown microphoneDropdown;
     public bool isPaused; 
         
     void Start()
     {
         pauseMenu.SetActive(false);
         ButtonToSelectInPause.Select();
+        
+        microphoneDropdown.onValueChanged.AddListener(SetMicrophone);
+
+            #if UNITY_WEBGL && !UNITY_EDITOR
+            microphoneDropdown.options.Add(new TMP_Dropdown.OptionData("Microphone not supported on WebGL"));
+            #else
+            foreach (var device in Microphone.devices)
+            {
+                microphoneDropdown.options.Add(new TMP_Dropdown.OptionData(device));
+            }
+            microphoneDropdown.onValueChanged.AddListener(SetMicrophone);
+
+            var index = PlayerPrefs.GetInt("user-mic-device-index");
+            microphoneDropdown.SetValueWithoutNotify(index);
+            #endif
     }
 
     void Update()
@@ -34,6 +52,15 @@ public class PauseMenu : MonoBehaviour
                 PauseGame();
             }
         }
+
+        if(isPaused)
+        {
+            if (Input.GetButtonDown("Back"))
+            {
+                ResumeGame();
+            }
+        }
+        
         Player player = FindObjectOfType<Player>();
         levelText.text = "Level: " + player.level;
         scoreText.text = "Score: " + player.fluencyRate + "%";  
@@ -84,12 +111,41 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Fluency rate: " + player.fluencyRate);
     }
 
-    public void Back()
+    public void LoadOptions()
     {
-        Map.SetActive(false);
+        pauseMenu.SetActive(false);
+        OptionsMenu.SetActive(true);
+        ButtonToSelectInOptions.Select();
+    }
+
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }  
+
+    private void SetMicrophone(int index)
+    {
+        PlayerPrefs.SetInt("user-mic-device-index", index);
+    }
+
+    public string GetMicrophoneText()
+    {   var index = PlayerPrefs.GetInt("user-mic-device-index");
+        string microphoneText = microphoneDropdown.options[index].text;
+        Debug.Log(microphoneText);
+        return microphoneText;
+    }
+
+    public void Back()
+    {   if(OptionsMenu.activeSelf)
+        {
+            OptionsMenu.SetActive(false);
+        }
+        else if(Map.activeSelf)
+        {
+            Map.SetActive(false);
+        }
         pauseMenu.SetActive(true);
         ButtonToSelectInPause.Select();
-
     }
 
     public void GoToMainMenu()

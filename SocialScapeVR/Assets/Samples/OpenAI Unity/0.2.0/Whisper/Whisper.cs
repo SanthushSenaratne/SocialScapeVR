@@ -14,6 +14,7 @@ namespace Samples.Whisper
         [SerializeField] private TMP_Text message; 
         [SerializeField] private TMP_Text startText;
         [SerializeField] private TMP_Text stopText;
+        PauseMenu pauseMenu;
 
         private readonly string fileName = "output.wav";
         private readonly int duration = 10;
@@ -31,6 +32,9 @@ namespace Samples.Whisper
 
         private void Start()
         {
+            GameObject pauseManager = GameObject.Find("PauseManager");
+            pauseMenu = pauseManager.GetComponent<PauseMenu>();
+
             #if UNITY_WEBGL && !UNITY_EDITOR
             microphoneDropdown.options.Add(new TMP_Dropdown.OptionData("Microphone not supported on WebGL"));
             #else
@@ -137,7 +141,7 @@ namespace Samples.Whisper
 
                 #if !UNITY_WEBGL
                 int lastMicIndex = Microphone.devices.Length - 1;
-                clip = Microphone.Start(microphoneDropdown.options[lastMicIndex].text, false, duration, 44100);
+                clip = Microphone.Start(pauseMenu.GetMicrophoneText(), false, duration, 44100);
                 #endif
             }
         }

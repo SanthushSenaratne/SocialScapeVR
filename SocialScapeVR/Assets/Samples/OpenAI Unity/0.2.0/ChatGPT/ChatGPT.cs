@@ -98,7 +98,7 @@ namespace OpenAI
             // Complete the instruction
             var completionResponse = await openai.CreateChatCompletion(new CreateChatCompletionRequest()
             {
-                Model = "gpt-3.5-turbo-0613",
+                Model = "gpt-4-turbo-preview",
                 Messages = messages
             });
 
