@@ -13,6 +13,7 @@ public class PlayerInteractUI : MonoBehaviour
 
     private void Update() {
         if (playerInteract.GetInteractableObject() != null) {
+            Hide();
             Show(playerInteract.GetInteractableObject());
         } else {
             Hide();
@@ -21,7 +22,7 @@ public class PlayerInteractUI : MonoBehaviour
 
     private void Show(NPCInteractable npcInteractable) {
         npcInteractable.GetComponentInChildren<PlayerInteractUI>().containerGameObject.SetActive(true);
-        npcInteractable.GetComponentInChildren<PlayerInteractUI>().interactTextMeshProGUI.text = interactText;
+        interactTextMeshProGUI.text = interactText;
     }
 
     private void Hide() {

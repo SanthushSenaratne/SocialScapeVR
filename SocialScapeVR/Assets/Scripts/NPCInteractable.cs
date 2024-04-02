@@ -9,7 +9,7 @@ public class NPCInteractable : MonoBehaviour
 {
     [SerializeField] private GameObject toActivate;
     [SerializeField] private GameObject toDeactivate;
-    [SerializeField] private ChatGPT chatGPT;
+    [SerializeField] private TextToSpeech textToSpeech;
 
     private Animator animator;
     private NPCHeadLookAt npcHeadLookAt;
@@ -37,7 +37,7 @@ public class NPCInteractable : MonoBehaviour
 
         npcHeadLookAt.ResetLookAt();
 
-        chatGPT.ClearMessages();
+        textToSpeech.RemoveAudioClip();
         
         toActivate.SetActive(false);
         toDeactivate.SetActive(true);

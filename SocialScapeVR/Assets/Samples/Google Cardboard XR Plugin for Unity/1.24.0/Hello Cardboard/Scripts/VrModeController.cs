@@ -68,9 +68,6 @@ public class VrModeController : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        XRGeneralSettings.Instance.Manager.InitializeLoader();
-        XRGeneralSettings.Instance.Manager.StartSubsystems();
-        
         // Saves the main camera from the scene.
         _mainCamera = Camera.main;
 
@@ -78,7 +75,7 @@ public class VrModeController : MonoBehaviour
         // Brightness control is expected to work only in iOS, see:
         // https://docs.unity3d.com/ScriptReference/Screen-brightness.html.
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
-        Screen.brightness = 1.0f;
+        //Screen.brightness = 1.0f;
 
         // Checks if the device parameters are stored and scans them if not.
         // This is only required if the XR plugin is initialized on startup,

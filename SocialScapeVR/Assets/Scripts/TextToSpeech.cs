@@ -18,8 +18,8 @@ public enum VoiceIdEnum
 public class TextToSpeech : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
-
     [SerializeField] public VoiceIdEnum voiceId;
+    public UnityEvent OnReplyReceived;
     
     public async void MakeAudioRequest(string message, VoiceIdEnum voiceId)
     {
@@ -59,6 +59,7 @@ public class TextToSpeech : MonoBehaviour
 
             audioSource.clip = clip;
             audioSource.Play();
+            OnReplyReceived.Invoke();
         }
     }
 

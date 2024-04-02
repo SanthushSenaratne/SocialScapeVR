@@ -21,10 +21,8 @@ namespace OpenAI
         [SerializeField] private NPCInteractable npcInteractable;
         [SerializeField] private TextToSpeech textToSpeech;
 
-        public UnityEvent OnReplyReceived;
-
+        private Whisper whisper;
         private string response;
-
         private float height;
         private OpenAIApi openai = new OpenAIApi(APIKeys.OPENAI_API);
 
@@ -49,7 +47,8 @@ namespace OpenAI
 
             button.onClick.AddListener(SendReply);
 
-            Whisper.TranscriptionCompleted += OnTranscriptionCompleted;
+            whisper = GetComponent<Whisper>();
+            whisper.TranscriptionCompleted += OnTranscriptionCompleted;
         }
 
         private void OnTranscriptionCompleted(string transcribedText)
@@ -119,25 +118,8 @@ namespace OpenAI
                 Debug.LogWarning("No text was generated from this prompt.");
             }
 
-            OnReplyReceived.Invoke();
-
             button.enabled = true;
             inputField.enabled = true; 
-        }
-
-        public void ClearMessages()
-        {
-            textToSpeech.RemoveAudioClip();
-            
-            // Destroy child elements of the scroll content
-            foreach (Transform child in scroll.content.transform)
-            {
-                Destroy(child.gameObject);
-            }
-        
-            // Reset message list and height
-            messages.Clear();
-            height = 0;
         }
     }
 }

@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
+    NPCInteractable currentInteractable;
     private void Update() 
     {
         if (Input.GetButtonDown("Interact")) 
         {
-            GetInteractableObject().Interact(transform);
+            currentInteractable = GetInteractableObject();
+            if (currentInteractable != null)
+            {
+                currentInteractable.Interact(transform);
+            }
         }
-        if (Input.GetButtonDown("Back")) 
+        else if (Input.GetButtonDown("Back"))
         {
-            GetInteractableObject().StopInteract();
+            if (currentInteractable != null)
+            {
+                currentInteractable.StopInteract();
+                currentInteractable = null;
+            }
+        }
+        if (GetInteractableObject() != null) 
+        {
+            if (currentInteractable != GetInteractableObject())
+            {
+                if (currentInteractable != null)
+                {
+                    currentInteractable.StopInteract();
+                    currentInteractable = null;
+                }
+            }
         }
     }
 
@@ -46,5 +66,14 @@ public class PlayerInteract : MonoBehaviour
             }
         }
         return closestInteractable;
+    }
+
+    public void StopInteract() 
+    {
+        if (currentInteractable != null)
+            {
+                currentInteractable.StopInteract();
+                currentInteractable = null;
+            }
     }
 }

@@ -14,7 +14,10 @@ public class PauseMenu : MonoBehaviour
     public Button ButtonToSelectInMap;
     public Button ButtonToSelectInOptions;
     public TextMeshProUGUI levelText;
-    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI xpText;
+    public TextMeshProUGUI ratingText;
+    public Slider xpSlider;
+    public Slider ratingSlider;
     public TMP_Dropdown microphoneDropdown;
     public bool isPaused; 
         
@@ -63,15 +66,23 @@ public class PauseMenu : MonoBehaviour
         
         Player player = FindObjectOfType<Player>();
         levelText.text = "Level: " + player.level;
-        scoreText.text = "Score: " + player.fluencyRate + "%";  
+        xpText.text = player.xp + "/100";
+        xpSlider.value = (float)player.xp / 100;
+
+        ratingText.text = player.fluencyRate + "%";  
+        ratingSlider.value = (float)player.fluencyRate / 100; 
     }
 
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
-        isPaused = true;
-       
+        isPaused = true;   
+
+        Player player = FindObjectOfType<Player>();
+        PlayerInteract playerInteract = player.GetComponent<PlayerInteract>();
+        playerInteract.StopInteract();
+        playerInteract.enabled = false;
     }
 
     public void ResumeGame()
@@ -79,7 +90,10 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
-       
+
+        Player player = FindObjectOfType<Player>();
+        PlayerInteract playerInteract = player.GetComponent<PlayerInteract>();
+        playerInteract.enabled = true;
     }
 
     public void LoadMap()

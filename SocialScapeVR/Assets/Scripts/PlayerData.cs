@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerData 
 {
     public int level;
+    public int xp;
     public int wordCount;
     public int disfluencyCount;
     public float[] position;
@@ -13,6 +14,7 @@ public class PlayerData
     public PlayerData(Player player)
     {
         level = player.level;
+        xp = player.xp;
         wordCount = player.wordCount;
         disfluencyCount = player.disfluencyCount;
         

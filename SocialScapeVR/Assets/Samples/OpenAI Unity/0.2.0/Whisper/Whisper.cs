@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using System.Xml.XPath;
 
 namespace Samples.Whisper
 {
@@ -27,8 +28,7 @@ namespace Samples.Whisper
         private OpenAIApi openai = new OpenAIApi(APIKeys.OPENAI_API);
 
         public delegate void OnTranscriptionCompleted(string text);
-        public static event OnTranscriptionCompleted TranscriptionCompleted;
-
+        public event OnTranscriptionCompleted TranscriptionCompleted;
 
         private void Start()
         {
@@ -86,27 +86,9 @@ namespace Samples.Whisper
 
                 string text = SpeechAnalysis.PreprocessText(res.Text);
 
-                int tempWordCount = SpeechAnalysis.CountWords(text);
+                wordCount = SpeechAnalysis.CountWords(text);
 
-                int tempDisfluencyCount = SpeechAnalysis.CountKeywordOccurrences(text, SpeechAnalysis.disfluencyIndicators);
-                
-                if (tempWordCount == 0)
-                {
-                    wordCount = tempWordCount;
-                }
-                else
-                {
-                    wordCount += tempWordCount;
-                }
-
-                if (tempDisfluencyCount == 0)
-                {
-                    disfluencyCount = tempDisfluencyCount;
-                }
-                else
-                {
-                    disfluencyCount += tempDisfluencyCount;
-                }
+                disfluencyCount = SpeechAnalysis.CountKeywordOccurrences(text, SpeechAnalysis.disfluencyIndicators);
 
                 Player player = FindObjectOfType<Player>();
                 if (player != null)
@@ -116,6 +98,7 @@ namespace Samples.Whisper
                     player.fluencyRate = 100 - (player.disfluencyCount * 100 / player.wordCount);
 
                     player.CalculateLevel();
+                    player.CalculateXp();
                     player.SavePlayer();
                 }
                 else
@@ -137,10 +120,7 @@ namespace Samples.Whisper
 
                 isRecording = true;
 
-                var index = PlayerPrefs.GetInt("user-mic-device-index");
-
                 #if !UNITY_WEBGL
-                int lastMicIndex = Microphone.devices.Length - 1;
                 clip = Microphone.Start(pauseMenu.GetMicrophoneText(), false, duration, 44100);
                 #endif
             }
